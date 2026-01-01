@@ -1,3 +1,3 @@
 # hello-world
 Übung macht den Meister
-Dies ist ein detuches Sprichword, das mir sehr gefählt. 
+Dies ist ein deutsches Sprichwort, das mir sehr gefählt. 
