@@ -1,0 +1,692 @@
+---
+draft: true
+---
+
+ 1   Audit and Accountability Policy and Procedures
+ 2
+ 3       Dispel
+ 4       Version: 2
+ 5       Date: 1 December 2024
+ 6
+ 7       Standards covered by this document
+ 8
+ 9       FedRAMP: AU-1, AU-2, AU-3, AU-3(1), AU-4, AU-5, AU-5(1), AU-5(2), AU-6, AU-6(1), AU-
+10       6(3), AU-6(4), AU-6(5), AU-6(6), AU-6(7), AU-7, AU-7(1), AU-8, AU-9, AU-9(2), AU-9(3), AU-
+11       9(4), AU-10, AU-11, AU-12, AU-12(1), AU-12(3)
+12
+13       NIST 800-53: AU-1, AU-2, AU-3, AU-3(1), AU-4, AU-5, AU-5(1), AU-5(2), AU-6, AU-6(1), AU-
+14       6(3), AU-6(4), AU-6(5), AU-6(6), AU-6(7), AU-7, AU-7(1), AU-8, AU-9, AU-9(2), AU-9(3), AU-
+15       9(4), AU-10, AU-11, AU-12, AU-12(1), AU-12(3)
+16
+17       Keywords: Audit, Logging, Sessions, Recording
+18
+19       Artifacts: Dispel Log Standard
+20
+21
+
+
+22   Table of Contents
+23   Policy ...................................................................................................................................................... 3
+24   Background ........................................................................................................................................... 3
+25   Purpose................................................................................................................................................... 3
+26      NIST 800-53 Field: AU-1 ................................................................................................................................. 3
+27   Scope....................................................................................................................................................... 3
+28      NIST 800-53 Field: AU-1 ................................................................................................................................. 3
+29   Roles and Responsibilities .................................................................................................................... 4
+30      NIST 800-53 Field: AU-1 ................................................................................................................................. 4
+31   Management Commitment .................................................................................................................. 4
+32      NIST 800-53 Field: AU-1 ................................................................................................................................. 4
+33   Coordination Among Organizational Entities ................................................................................... 5
+34      NIST 800-53 Field: AU-1 ................................................................................................................................. 5
+35   Covered Persons .................................................................................................................................... 5
+36      NIST 800-53 Field: AU-1 ................................................................................................................................. 5
+37   Dissemination, Acceptance, and Acknowledgement .......................................................................... 5
+38      NIST 800-53 Field: AU-1 ................................................................................................................................. 5
+39   Policy and Procedures Review Tempo ................................................................................................ 5
+40      NIST 800-53 Field: AU-1 ................................................................................................................................. 5
+41   General System Event Logging............................................................................................................ 6
+42      NIST 800-53 Fields: AU-2 and AU-12, AU-12(1) ........................................................................................... 6
+43   Event Types Requiring Continuous Monitoring................................................................................ 6
+44      NIST 800-53 Field: AU-2(c) and (d), AU-12(3) .............................................................................................. 6
+45   Intra-Organization Coordination and Review Tempo of Event Types Being Logged ................... 7
+46      NIST 800-53 Field: AU-2(b) and (e) ................................................................................................................ 7
+47   Log Record Content .............................................................................................................................. 7
+48      NIST 800-53 Field: AU-3, AU-3(1), and AU-12 ............................................................................................. 7
+49   Customer-Configured Event Log Usage ............................................................................................. 8
+50      NIST 800-53 Field: AU-2 ................................................................................................................................. 8
+51   Audit Log Storage Capacity Configuration ....................................................................................... 8
+52      NIST 800-53 Field: AU-4 ................................................................................................................................. 8
+53   Audit Log Alerts and Configurable Actions ....................................................................................... 8
+54      NIST 800-53 Field: AU-5, AU-5(1), AU-5(2).................................................................................................. 8
+55   <FedRAMP System Specific> Audit Record Consolidation ........................................................... 10
+56      NIST 800-53 Field: AU-6(4) .......................................................................................................................... 10
+57   <FedRAMP System Specific> Audit Record Review ...................................................................... 10
+58      NIST 800-53 Fields: AU-6, AU-6(1), AU-6(3), AU-6(5), and AU-6(6) ........................................................ 10
+59   <FedRAMP Specific> Correlation with Physical Monitoring ........................................................ 10
+60      NIST 800-53 Field: AU-6(6) .......................................................................................................................... 10
+61   Audit Record Reduction and Report Generation ............................................................................ 10
+62      NIST 800-53 Field: AU-6(1), AU-6(7), AU-7, AU-7(1) ................................................................................ 10
+63   <FedRAMP Specific> Time Stamps .................................................................................................. 11
+64      NIST 800-53 Field: AU-8 ............................................................................................................................... 11
+65   <FedRAMP Specific> Protection of Audit Information ................................................................. 11
+66      NIST 800-53 Field: AU-9, AU-9(2), and AU-9(3), AU-9(4) ......................................................................... 11
+67   <FedRAMP> Non-Repudiation of Audit System Adjustments ...................................................... 12
+68      NIST 800-53 Field: AU-10 ............................................................................................................................. 12
+69   Compliance .......................................................................................................................................... 12
+70      NIST 800-53 Field: AU-1 ............................................................................................................................... 12
+71   Record Retention ................................................................................................................................ 15
+72      NIST 800-53 Fields: AU-9(2), AU-11 ............................................................................................................ 15
+ 73   Access by Dispel Employees to Client Audit Records ..................................................................... 15
+ 74      NIST 800-53 Field: AU-9(4) .......................................................................................................................... 15
+ 75   Precedence ........................................................................................................................................... 15
+ 76      NIST 800-53 Field: AU-1 ............................................................................................................................... 15
+ 77   Revision History .................................................................................................................................. 15
+ 78
+
+ 79   Policy
+ 80       The Audit and Accountability (AU) control family is essential for tracking and monitoring activities
+ 81       within Dispel’s information systems. By generating, protecting, and retaining audit records, we
+ 82       ensure accountability and support investigations. These controls enable us to detect and respond to
+ 83       security incidents, comply with policies, and provide necessary evidence for disputes or legal
+ 84       actions. Implementing AU controls is crucial for maintaining the integrity and security of our
+ 85       systems, managing risks, and protecting sensitive information, thereby ensuring compliance with
+ 86       federal regulations and fostering trust in our information security practices.
+ 87
+
+ 88   Background
+ 89       The Audit and Accountability (AU) control family is part of the NIST Special Publication 800-53,
+ 90       which provides a catalog of security and privacy controls for federal information systems and
+ 91       organizations. These controls are designed to protect the confidentiality, integrity, and availability
+ 92       of information systems. The AU controls specifically focus on the creation, protection, and retention
+ 93       of audit records to ensure that activities within the system can be accurately tracked and monitored.
+ 94       This is critical for detecting and responding to security incidents, ensuring compliance with
+ 95       organizational policies, and providing evidence for investigations and legal proceedings. By
+ 96       implementing these controls, organizations can enhance their security posture and maintain trust in
+ 97       their information security practices.
+
+ 98   Purpose
+ 99       NIST 800-53 Field: AU-1
+100       This policy and procedures document covers the purpose, scope, roles, responsibilities, management
+101       commitment, coordination among organizational entities, and compliance for Dispel with respect to
+102       the audit and accountability of the Dispel organization’s controls.
+
+103   Scope
+104       NIST 800-53 Field: AU-1
+105       This policy and procedures document covers the full Dispel organization. Sections that are specific
+106       to FedRAMP systems (at the time of this revision, the only such system is the Dispel Zero Trust
+107       Engine) are marked by <FedRAMP System Specific> at the start of the relevant section, subsection,
+108       paragraph, or sentence.
+109   Roles and Responsibilities
+110     NIST 800-53 Field: AU-1
+111     The Policy Owner of this document is the Chief Technology Officer.
+112
+113     The Policy Owner is responsible for managing the development, documentation, and dissemination
+114     of the Audit and Accountability policy and procedures.
+115
+116     Control-level responsibilities by Role are listed below.
+117
+         Control               Responsible Role                              System Roles (if other)
+         AU-1                  Chief Technology Officer                      Deliberately left blank.
+         AU-2 (a)              Development Operations Lead                   Deliberately left blank.
+         AU-2 (c) and (d)      Development Operations Lead                   Deliberately left blank.
+         AU-2 (b) and (e)      Senior Product Manager                        Deliberately left blank.
+         AU-3                  Development Operations Lead                   Deliberately left blank.
+         AU-3(1)               Development Operations Lead                   Deliberately left blank.
+         AU-4                  Development Operations Lead                   Deliberately left blank.
+         AU-5                  Development Operations Lead                   Deliberately left blank.
+         AU-5(1)               Development Operations Lead                   Deliberately left blank.
+         AU-5(2)               Development Operations Lead                   Deliberately left blank.
+         AU-6                  Customer                                      Deliberately left blank.
+         AU-6(1)               Development Operations Lead and Customer      Deliberately left blank.
+         AU-6(3)               Customer                                      Deliberately left blank.
+         AU-6(4)               Head of Operations                            System Administrator
+         AU-6(5)               Customer                                      Deliberately left blank.
+         AU-6(6)               Customer                                      Deliberately left blank.
+         AU-6(7)               Development Operations Lead                   Deliberately left blank.
+         AU-7                  Development Operations Lead                   Deliberately left blank.
+         AU-7(1)               Development Operations Lead                   Deliberately left blank.
+         AU-8                  Development Operations Lead                   Deliberately left blank.
+         AU-9                  Customer                                      Deliberately left blank.
+         AU-9(2)               Development Operations Lead                   Deliberately left blank.
+         AU-9(3)               Customer                                      Deliberately left blank.
+         AU-9(4)               Customer                                      Deliberately left blank.
+         AU-10                 Development Operations Lead                   Deliberately left blank.
+         AU-11                 Development Operations Lead                   Deliberately left blank.
+         AU-12                 Development Operations Lead                   Deliberately left blank.
+         AU-12(1)              Development Operations Lead                   Deliberately left blank.
+         AU-12(3)              Development Operations Lead                   Deliberately left blank.
+118
+119     Definitions of these Roles are located in Roles and Responsibilites FedRamp High Document.
+120
+
+121   Management Commitment
+122     NIST 800-53 Field: AU-1
+123    Management’s commitment to these policies and procedures is and shall be demonstrated through a
+124    variety of actions that raise awareness among Covered Persons. Some examples include:
+125
+126    1. This document was written and revised by senior members of Management. It was not
+127       outsourced to a third party.
+128    2. Enforcement of the Dissemination, Acceptance, and Acknowledgement process.
+129    3. Hosting Company all-hands meetings where this document is raised and feedback is solicited
+130       from Covered Persons on how to improve the policy and procedures.
+131    4. Requiring subsets of Covered Persons to read the standards that drive the construction of these
+132       policies and procedures.
+
+133   Coordination Among Organizational Entities
+134    NIST 800-53 Field: AU-1
+135    The procedures described throughout this document cover where intra-organizational coordination
+136    is known to be necessary to effectuate the documented policies. If a Dispel employee finds a
+137    procedure no longer reflects the current dynamics within the organization, or a procedure should be
+138    revised to achieve the same effect more efficiently, they shall notify the Policy Owner of the
+139    recommended change.
+
+140   Covered Persons
+141    NIST 800-53 Field: AU-1
+142    All workforce members are covered by this policy.
+
+143   Dissemination, Acceptance, and Acknowledgement
+144    NIST 800-53 Field: AU-1
+145    The process of dissemination shall be made failsafe by holding, as a prerequisite to being authorized
+146    as a Covered Person, that an individual must first review, accept, and acknowledge this document.
+147    All Covered Persons must review, accept, and acknowledge this document at least Annually.
+
+148   Policy and Procedures Review Tempo
+149    NIST 800-53 Field: AU-1
+150    The Policy Owner must review and, if necessary, update policies and procedures:
+151
+152    1. At least once annually;
+153    2. Policies following discretionary off-cycle formal policy reviews; and,
+154    3. Procedures following significant changes (as defined by the current revision of NIST SP 800-
+155       37).
+156
+157    Starting in January 2024, all of Dispel’s policies and procedures will be reviewed at an annual Policy
+158    and Procedures Review Day. Ahead of this event, the Compliance Officer must solicit and collect
+159    feedback from Workforce Members on policies and procedures (specifically, asking how well those
+160    policies and procedures are working in practice and where they can be made more efficient). At the
+161    annual meeting, the Policy Owner shall formally complete their review of the relevant policy and
+162    procedure, update the policy and procedure, and approve the update. In practice, drafts of the update
+163    will be prepared and shared with other Policy Owners of different documents in advance of the
+164    review day. The objective of sharing drafts with the other Policy Owners is to get feedback from
+165    those Policy Owners.
+
+166   General System Event Logging
+167    NIST 800-53 Fields: AU-2 and AU-12, AU-12(1)
+168    The following event types and data shall always be logged within Dispel’s FedRAMP products and
+169    may be programmatically available from other Dispel product lines. The definitive list of logged
+170    event types can be found within Dispel’s Log Standard The Development Operations Lead shall be
+171    responsible for enabling this section.
+172
+      Logged Event Types
+      Successful and unsuccessful account logon
+      Account management
+      Object access
+      Policy changes
+      Privilege functions
+      Process tracking
+      System events
+
+
+173
+
+      Logged Event Types for Web Applications:
+      All administrator activity
+      Authentication checks
+      Authorization checks
+      Data deletions
+      Data access
+      Data changes
+      Permission changes
+174
+175
+
+176   Event Types Requiring Continuous Monitoring
+177    NIST 800-53 Field: AU-2(c) and (d), AU-12(3)
+178    All of the event types listed above are logged. However, Dispel recommends logs of the following
+179    event types: login events, data and permission changes, and remote access connections made to target
+180    assets should be audited continually (ie: at the time the event log is generated) by Customers.
+181    Together, tracking these events will ensure a Customer will be aware of:
+182
+183    1. Who is accessing the system or if someone is trying to break into the system.
+184    2. If someone is going to get to do something different than what they were previously approved to
+185       do.
+186    3. What a person could do to systems that someone is using the Dispel Zero Trust Engine to reach.
+187
+188    A person must be authenticated in order to manipulate permissions, update dashboard data, alter
+189    infrastructure, or gain access to a virtual desktop through which they can connect to a target asset.
+190    In addition to platform logging which monitors all of the above critical actions, each virtual desktop
+191    is subject to screen recording, traffic monitoring, and event logging. The subset of screen recording,
+192    login events, permission changes, and connections made to external assets should be, in Dispel’s
+193    opinion, sufficient to support after-the-fact investigations.
+194
+195    The Customer shall be responsible for decisions related to the controls mapped to this section.
+
+196   Intra-Organization Coordination and Review Tempo of Event Types
+197   Being Logged
+198    NIST 800-53 Field: AU-2(b) and (e)
+199    Dispel is in the process of developing a comprehensive audit log standard applicable across the web
+200    application, customer network, and cloud infrastructure layers. This standard defines the types of
+201    events to be logged, the format and structure of the logs, and the mechanisms for log ingestion and
+202    management. The development process includes coordination across all organizational units to
+203    ensure a consistent and comprehensive approach to audit logging.
+204
+205    As part of Feature Ranking meetings, Engineering shall coordinate with Operations and Sales
+206    functions at Dispel to determine if additional audit data should be added to the list of available fields
+207    and to guide and inform the selection criteria for events to be logged.
+208
+209    Further, the event types being logged shall be reviewed as part of the annual document review and
+210    whenever changes in the threat environment are communicated to the service provider by the
+211    JAB/AO.
+212
+213    The Senior Product Manager shall be responsible for enforcing this section.
+
+214   Log Record Content
+215    NIST 800-53 Field: AU-3, AU-3(1), and AU-12
+216    All audit records shall contain data that answers the following questions. Definitive standards and
+217    any updates to these minimums can be found in Dispel’s Log Standard. The Development Operations
+218    Lead shall be responsible for enforcing this section.
+219
+      Question Log Data Must Answer
+      What type of event occurred
+      When the event occurred
+      Where the event occurred
+      Source of the event
+      Outcome of the event
+      Identity of any individuals, subjects, or objects/entities associated with the event
+220
+221
+222     Where relevant, the following log information shall also be generated and made available to the
+223     Customer.
+224
+      Additional Event Fields
+      Session, connection, transaction, or activity duration
+      For client-server transactions, the number of bytes received and bytes sent
+      Additional informational messages to diagnose or identify the event
+      The characteristics of the event
+      Characteristics that describe or identify the object or resource being acted upon
+      Individual identities of group account users
+      Full-text of privileged commands
+225
+226
+
+227   Customer-Configured Event Log Usage
+228     NIST 800-53 Field: AU-2
+229     The Customer shall be responsible for:
+230     1. Specifying which types of events listed in the General System Event Logging section shall be
+231        subject to continuous audit by their team.
+232     2. Providing a rationale for why the event types selected for logging are deemed to be adequate to
+233        support after-the-fact investigations of incidents.
+234     3. Reviewing and updating the event types selected for logging annually and whenever there is a
+235        change in the threat environment as determined by the Customer. <FedRAMP Specific> If
+236        Dispel is alerted by the Joint Authorization Board / Agency Officer that there is a change in the
+237        threat environment, Dispel shall notify the Customer of the alert following the Customer-specific
+238        coordination guide.
+
+239   Audit Log Storage Capacity Configuration
+240     NIST 800-53 Field: AU-4
+241     FedRAMP System Customers shall, and other Customers may, have the ability to configure audit
+242     log server storage capacity so as to meet Customer-defined audit log retention requirements. The
+243     Development Operations Lead shall be responsible for enabling this functionality.
+
+244   Audit Log Alerts and Configurable Actions
+245     NIST 800-53 Field: AU-5, AU-5(1), AU-5(2)
+246    The Development Operations Lead shall be responsible for enabling this control. FedRAMP System
+247    Customers shall, and other Customers may, be able to configure the audit and logging system
+248    component to do the following.
+249
+      Configurable Alert               Configurable Action             How to Verify
+                                       Send alert to Customer-         Verify it is possible for a
+                                       defined personnel or roles      Customer to define and
+                                       within Customer-defined         configure an alert on the
+                                       time period.                    ELK Stack log server to
+                                                                       reach a person or set of
+                                       Unless otherwise defined,       persons within a defined
+                                       these alerts are sent to        period of time. As a first
+      Audit logging process failure.
+                                       authorized members of the       step, recommend seeing
+                                       Dispel Operations Center in     Kibana Alerting
+                                       real-time of process failure.   documentation. Confirm it is
+                                       Where necessary, the            possible to configure an
+                                       default is to Overwrite         overwrite in logstash in the
+                                       oldest record.                  event of a logging process
+                                                                       failure.
+                                       Send alert to Customer-         Navigate to the Disk Usage
+                                       defined personnel, roles,       page on a deployment’s
+                                       and/or locations within         Elastic Search log server
+                                       Customer-defined time           instance. Confirm the
+                                       period.                         “Notify when Disk Capacity
+                                                                       Is Over _ %” field can be
+                                       Unless otherwise defined,       adjusted. Confirm one can
+      Audit storage Customer-
+                                       these alerts are sent to        configure alert recipients.
+      defined percentage of full.
+                                       authorized members of the
+                                       Dispel Operations Center
+                                       within 24 hours after
+                                       reaching 75% of allocated
+                                       storage capacity or after
+                                       passing a one-month
+                                       negative impact threshold.
+                                       Send alert to configured        Verify it is possible for a
+                                       Dispel     personnel     with   Customer to define and
+                                       authority to address failed     configure an alert on the
+                                       audit events.                   ELK Stack log server to
+      Customer-defined audit log
+                                                                       reach a person or set of
+      failure events requiring real-
+                                                                       persons within a defined
+      time alerts.
+                                                                       period of time. As a first
+                                                                       step, recommend seeing
+                                                                       Kibana Alerting
+                                                                       documentation.
+250
+251
+252
+253   <FedRAMP System Specific> Audit Record Consolidation
+254    NIST 800-53 Field: AU-6(4)
+255    Audit records shall be consolidated in two central locations.
+256
+257    4. For recordings from Virtual Desktops: A virtual desktop screen recording location.
+258    5. For user actions and log data off of system components: a Log Server component.
+259
+260    The Head of Operations, supported at a system level by the System Administrators, shall be
+261    responsible for enforcing this control.
+
+262   <FedRAMP System Specific> Audit Record Review
+263    NIST 800-53 Fields: AU-6, AU-6(1), AU-6(3), AU-6(5), and AU-6(6)
+264    Dispel Zero Trust Engine deployments are all single tenanted, and log data is presented to the
+265    Customer for import into their audit systems. Additionally, Dispel will, through a Security
+266    Operations Center, centrally review, analyze, and report on those audit records. Dispel will adjust
+267    the level of audit record review, analysis, and reporting within its SOC when there is a change in
+268    risk based on law enforcement information, intelligence information, or other credible sources of
+269    information.
+270
+271    Dispel also integrates vulnerability scanning, performance scanning, and system monitoring to
+272    further enhance the ability to identify inappropriate or unusual activity.
+273    The Security Officer shall be responsible for enforcing this control.
+274
+
+275   <FedRAMP Specific> Correlation with Physical Monitoring
+276    NIST 800-53 Field: AU-6(6)
+277    The Customer shall be responsible for monitoring physical access to Wicket endpoints deployed on
+278    hardware or virtual infrastructure within their sites/zones of control. Dispel will advise Dispel Zero
+279    Trust Engine Customers that physical access monitoring should be correlated with other audit
+280    sources to further enhance the ability to identify suspicious, inappropriate, unusual, or malevolent
+281    activity.
+
+282   Audit Record Reduction and Report Generation
+283    NIST 800-53 Field: AU-6(1), AU-6(7), AU-7, AU-7(1)
+284    While a Customer may choose to parse audit data on their own systems after porting it over from
+285    their Dispel product deployment, the Dispel Log Server and Screen Recording component shall
+286    provide the following capabilities. Each audit record will include the permitted action associated
+287    with the logged event. The Development Operations Lead shall be responsible for enabling these
+288    capabilities.
+289
+      Dispel Log Server Capability                   Relevant Features
+      Support on-demand record review.               Continuous and current visibility into all data logs.
+      Support on-demand analysis.                   Filtering and data export.
+      Support on-demand reporting.                  Filtering and data export.
+      Support after-the-fact investigations.        Data can be exported to long-term storage.
+      Does not alter original content or time       Time stamps and time ordering are unaltered by filter
+      ordering during record reduction or           functions.
+      report generation.
+
+      Virtual Desktop Screen Recording
+      Component Capability                          Relevant Features
+                                                    Recordings can be reviewed at any time, including as
+      Support on-demand record review.
+                                                    the session is still underway.
+                                                    Recordings can be reviewed at any time. Time
+      Support on-demand analysis.
+                                                    periods with activity are highlighted for the reviewer.
+      Support on-demand reporting.                  Records can be individually exported.
+      Support after-the-fact investigations.        Recordings can be exported to long-term storage.
+      Does not alter original content or time       Analysis does not impact time stamps.
+      ordering during record reduction or
+      report generation.
+290
+291    Any field within an audit record can be used to process, sort, or search audit record data. Reports
+292    generated by Dispel logging systems will not edit or alter the original content or time ordering of
+293    audit records.
+
+294   <FedRAMP Specific> Time Stamps
+295    NIST 800-53 Field: AU-8
+296    Internal system clocks shall be used to generate time stamps for audit records. Time stamps shall
+297    have at least one second of granularity for time measurement and shall use Coordinated Universal
+298    Time or include an offset to the time zone of the individual reviewing the audit record. The
+299    Development Operations Lead shall be responsible for enabling these capabilities.
+
+300   <FedRAMP Specific> Protection of Audit Information
+301    NIST 800-53 Field: AU-9, AU-9(2), and AU-9(3), AU-9(4)
+302    Any audit data held within the Dispel Zero Trust Engine is protected within the Dispel system using
+303    the same access controls, cryptographic mechanisms, and alerts as any other system components
+304    within the system boundary. Audit data is stored in a physically different location from audited
+305    systems. Access to audit records is limited to Platform Managers with a Security Tier role.
+306
+307    Audit information, at the Customer’s discretion, can be pushed out of the Dispel Zero Trust Engine
+308    system to a Customer audit system. If that takes place, the responsibility of protecting that
+309    information passes to the Customer.
+310
+311    Access, modification, or deletion event Alerts generated by a Log Server component will go to
+312    Dispel System Administrators unless the Customer has deactivated those alerts. If the Customer
+313    deactivates alerts to Dispel System Administrators or configures there Dispel Zero Trust Engine
+314    deployment to forward audit data to a Customer system, the Customer is responsible for alerting the
+315    proper personnel or roles in the event of unauthorized access, modification, and deletion.
+316
+317    It is the Customer’s responsibility to configure which individuals may access that log server, as well
+318    as the permissions those users have once on the log server.
+
+319   <FedRAMP> Non-Repudiation of Audit System Adjustments
+320    NIST 800-53 Field: AU-10
+321    All application actions within the DZTE are logged and audit records provide their authentication
+322    action as evidence of non-repudiation, which can be seen through Dashboard audit logs.
+323
+324
+325    The Development Operations Lead shall be responsible for enabling these capabilities.
+326
+327    Across all components of Dispel Zero Trust Engine deployments, access to any system requires an
+328    irrefutable authentication step through a strong log in and second factor of authorization. From that
+329    moment, any action within a Dispel Zero Trust Engine component – including connections from a
+330    Virtual Desktop to a Log Server component – is monitored and tagged to that user. As each action –
+331    including addition, modification, deletion, approval, sending, or receiving of data – is tagged to a
+332    user after their multi-factor authentication step, and all actions on the Log Server are recorded, the
+333    actions performed on log servers are tied irrefutably to the user-id.
+
+334   Compliance
+335    NIST 800-53 Field: AU-1
+336    Compliance with the policies and procedures stated within this document will be, at a minimum,
+337    tracked using the following methods. Additional processes may be listed within subsections of this
+338    document or supporting documents.
+339
+        Control        What                               How
+        AU-1(a)        That policies and procedures       Review this document.
+                       exist covering the Audit and
+                       Accountability control set
+                       required for the FedRAMP
+                       High baseline.
+        AU-1(b)        That the Compliance Officer        Review this document. Interview the
+                       has indeed been designated to      Compliance Officer and a randomly selected set
+                       manage the development,            of Management members to confirm common
+                       documentation, and                 knowledge of this designation.
+                       dissemination of the Audit and
+                       Accountability policy and
+                       procedures.
+        AU-1(c)        That the Risk Assessment           Go into Drata. Confirm that the Audit and
+                       policies and procedures are        Accountability is being updated on an annual
+                       being reviewed and updated in      cadence and in line with reviews necessitated by
+                                                          Significant Changes. Note that there haven’t
+          alignment with the tempo           been Significant Changes as of December 8,
+          defined in section RA-1.           2023.
+AU-2      Are the requisite event types      Follow the instruction table provided in General
+          always programmatically            System Event Logging to see all of the log fields.
+          visible and are they always        Interview the Chief Technology Officer and
+          being logged? Are we               Senior Product Manager.
+          conducting periodic reviews of
+          whether additional audit fields
+          are needed?
+AU-3      Do all applicable log records      Follow the verification steps provided for in the
+          contain the fields shown in the    Log Record Content section of this document.
+          Log Record Content section of
+          this document?
+AU-3(1)   Do all applicable log records      Follow the verification steps provided for in the
+          contain the enhanced fields        Log Record Content section of this document.
+          shown in the Log Record
+          Content section of this
+          document?
+AU-4      Can one configure the storage      Get a tour from either the Development
+          capacity on the log server?        Operations Lead or the Head of Operations.
+AU-5      Can the Log Server be              Follow the “How to verify” section of the table.
+          configured to alert as specified
+          in the Audit Alerts and
+          Configurable Action section?
+AU-5(1)   Can the Log Server be              Follow the “How to verify” section of the table.
+          configured to alert as specified
+          in the Audit Alerts and
+          Configurable Action section?
+AU-5(2)   Can the Log Server be              Follow the “How to verify” section of the table.
+          configured to alert as specified
+          in the Audit Alerts and
+          Configurable Action section?
+AU-6      Are audit records being            Get a tour of a deployment by the Head of
+          consolidated as described in the   Operations.
+          “Audit Record Consolidation”
+          section?
+AU-6(1)   Does Dispel supply a means for     Get a tour of a deployment by the Head of
+          the Customer to export             Operations.
+          aggregated audit logs for
+          review?
+AU-6(3)   Does Dispel supply a means for     Get a tour of a deployment by the Head of
+          the Customer to export             Operations.
+          aggregated audit logs for
+          review?
+AU-6(4)   Does Dispel supply a means for     Get a tour of a deployment by the Head of
+          the Customer to export             Operations.
+           aggregated audit logs for
+           review?
+AU-6(5)    Does Dispel supply a means for   Get a tour of a deployment by the Head of
+           the Customer to export           Operations.
+           aggregated audit logs for
+           review?
+AU-6(6)    Does Dispel supply a means for   Get a tour of a deployment by the Head of
+           the Customer to export           Operations.
+           aggregated audit logs for
+           review?
+AU-6(7)    Does Dispel supply a means for   Get a tour of a deployment by the Head of
+           the Customer to export           Operations.
+           aggregated audit logs for
+           review?
+AU-7       Does Dispel supply a means for   Get a tour of a deployment by the Head of
+           the Customer to export           Operations.
+           aggregated audit logs for
+           review?
+AU-7(1)    Does Dispel supply a means for   Get a tour of a deployment by the Head of
+           the Customer to export           Operations.
+           aggregated audit logs for
+           review?
+AU-8       Are internal clocks being used   Get a tour from the Development Operations
+           to generate time stamps for      Lead.
+           audit logs?
+AU-9       Is audit log information being   Get a tour from the Development Operations
+           protected in alignment with      Lead.
+           AU-9?
+AU-9(2)    Is audit log information being   Get a tour from the Development Operations
+           protected in alignment with      Lead.
+           AU-9?
+AU-9(3)    Is audit log information being   Get a tour from the Development Operations
+           protected in alignment with      Lead.
+           AU-9?
+AU-9(4)    Is audit log information being   Get a tour from the Development Operations
+           protected in alignment with      Lead.
+           AU-9?
+AU-10      Is non-repudiation being         Verify logging is indeed taking place for all
+           accomplished as described in     actions performed on the log server.
+           AU-10?
+AU-11      Are records being retained in    Get a tour from the Head of Operations showing
+           alignment with AU-11?            the record retention and backup functions.
+AU-12      Can Audit Log Reports be         Get a demonstration from the Head of
+           generated?                       Operations of audit logs being generated.
+AU-12(1)   Do audit logs create a time      Review an audit log report to see whether a trail
+           stamp based trail?               can be generated of records based upon time
+                                            stamps.
+         AU-12(3)        Can audit logging only be          Get a tour from the Development Operations
+                         changed by authorized              lead.
+                         individuals?
+340
+
+341   Record Retention
+342     NIST 800-53 Fields: AU-9(2), AU-11
+343     Records are held in compliance with the National Archives & Records Administration (NARA)
+344     Records Schedule. Records retained for clients are categorized as (Record Category / Series # / Title
+345     / File #) 817 IT Security 817-5 IT Security "Security Audit Logs." These are disposed in accordance
+346     with GRS 3-2-030 under disposition authority DAA-GRS2013-00060003.
+347
+348     Records will be backed up at least weekly in a repository that is part of a physically different system
+349     or system component than the system or component being audited.
+350
+351     The Development Operations Lead shall be responsible for enabling this section.
+
+352   Access by Dispel Employees to Client Audit Records
+353     NIST 800-53 Field: AU-9(4)
+354     Client audit records stored on log servers within a Dispel Zero Trust Engine or other deployment
+355     may be accessed by authorized System Administrators. System Administrators are authorized on a
+356     per-client basis by the Customer for single-tenanted deployments, which cover all Dispel Zero Trust
+357     Engine deployments.
+
+358   Precedence
+359     NIST 800-53 Field: AU-1
+360     Whenever inconsistencies are found to exist between the above policy and any applicable laws,
+361     executive orders, directives, regulations, policies, standards, or guidelines, the latter will prevail.
+362     Upon discovery of any inconsistency, the Policy Owner will revise the impacting sections of the
+363     Policy within no more than 30 days to align with all applicable laws, executive orders, directives,
+364     regulations, policies, standards, or guidelines.
+
+365   Revision History
+      Revision History
+
+       Version   Date             Editor                 Description of Changes
+       1         2 Nov 23         Ian Schmertzler        Initial creation
+       1         8 Nov 23         Chris DiLorenzo        Approved
+       2         1 Dec 24         Chris DiLorenzo        Approved
+366
+                                        Policy version history
+
+      Policy details
+
+
+Policy name                                                          Renewal date
+
+
+Audit and Accountability Policy and Procedures                       February 9, 2026
+
+
+Description
+
+
+Audit and Accountability Policy and Procedures
+
+
+
+
+      Version history
+
+
+Version 1
+
+Creation date         Approval date     Published date      Owner                 Approver            Publisher
+
+February 7, 2024      April 10, 2024       April 10, 2024   Ethan Schmertzler     Ethan Schmertzler   Ethan Schmertzler
+
+
+
+
+Version 1.1
+
+Explanation of changes
+
+Slight edits and review for new year.
+
+
+Creation date          Approval date          Published date        Owner               Approver            Publisher
+
+February 10, 2025      February 14, 2025      February 14, 2025     Ethan Schmertzler   Ethan Schmertzler   Ethan Schmertzler
+
